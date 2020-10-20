@@ -23,11 +23,12 @@ div.NotCompleted {
 
 h2.Task {
     position: relative;
-    left: 4vw;
+    left: 4.5vw;
 }
 
 ul.Task {
-    position: absolute;
+    position: relative;
+    left: 2vw;
 }
 
 li {
@@ -35,7 +36,7 @@ li {
     margin-bottom: 10px;
 }
 
-button {
+button.GetStatus {
     position: absolute;
     right: 4vw;
     top: 3vw;

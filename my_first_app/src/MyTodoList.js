@@ -6,36 +6,50 @@ class MyTodoList extends React.Component {
         tasks: [
             {
                 id: 74342,
-                name: 'Name of the task',
-                description: 'What needs to be done',
+                name: 'Купить продукты.',
+                description: 'Хлеб, молоко, сыр.',
                 completed: true
             },
 
             {
                 id: 22356,
-                name: 'Name of the task',
-                description: 'What needs to be done',
-                completed: true
-            },
-
-            {
-                id: 12535,
-                name: 'Name of the task',
-                description: 'What needs to be done',
+                name: 'Сдать ДЗ во время.',
+                description: 'Очень сложно.',
                 completed: false
             },
 
             {
+                id: 12535,
+                name: 'Сдать сессию на 10.',
+                description: 'Невозможно.',
+                completed: true
+            },
+
+            {
                 id: 9835,
-                name: 'Name of the task',
-                description: 'What needs to be done',
+                name: 'Сделать проект.',
+                description: 'К 26 января.',
                 completed: true
             },
 
             {
                 id: 545656,
-                name: 'Name of the task',
-                description: 'What needs to be done',
+                name: 'Поспать.',
+                description: 'Минимум 8 часов.',
+                completed: false
+            },
+
+            {
+                id: 9755,
+                name: 'Запушить коммит',
+                description: 'Как можно скорее.',
+                completed: true
+            },
+
+            {
+                id: 53762,
+                name: 'Поесть.',
+                description: 'В Burger Heroes.',
                 completed: false
             }
         ]
@@ -46,15 +60,16 @@ class MyTodoList extends React.Component {
         return (
             <div className={"Task " + (x['completed'] ? "Completed" : "NotCompleted")} key={x['id']}>
                 <h2 className="Task">Task {x['id']}</h2>
-                <ul>
+                <ul className="Task">
                     <li>Name: {x['name']}</li>
                     <li>Description: {x['description']}</li>
                     <li>Completed: {x['completed'].toString()}</li>
                 </ul>
-                <button onClick={console.log("Task id completed status = d")}>Get status</button>
+                <button onClick={console.log.bind(this, 'Task ' + x['id'] + ' completed status = ' + x['completed'])} className='GetStatus'>Get status</button>
             </div>
         )
     }
+
 
     render() {
         return (
