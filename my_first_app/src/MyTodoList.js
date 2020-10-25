@@ -55,8 +55,8 @@ class MyTodoList extends React.Component {
         ]
     }
 
-    task = (x) => {
 
+    task = (x) => {
         return (
             <div className={"Task " + (x['completed'] ? "Completed" : "NotCompleted")} key={x['id']}>
                 <h2 className="Task">Task {x['id']}</h2>
@@ -65,7 +65,7 @@ class MyTodoList extends React.Component {
                     <li>Description: {x['description']}</li>
                     <li>Completed: {x['completed'].toString()}</li>
                 </ul>
-                <button onClick={console.log.bind(this, 'Task ' + x['id'] + ' completed status = ' + x['completed'])} className='GetStatus'>Get status</button>
+                <button onClick={() => console.log(this, 'Task ' + x['id'] + ' completed status = ' + x['completed'])} className='GetStatus'>Get status</button>
             </div>
         )
     }
