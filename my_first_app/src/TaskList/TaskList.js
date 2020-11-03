@@ -1,53 +1,54 @@
 import React from 'react'
-import './MyTodoList.css'
+import Task from '../Task/Task'
+import TaskAdd from '../TaskAdd/TaskAdd'
 
-class MyTodoList extends React.Component {
+class TaskList extends React.Component {
     state = {
         tasks: [
             {
-                id: 74342,
+                id: 1,
                 name: 'Купить продукты.',
                 description: 'Хлеб, молоко, сыр.',
                 completed: true
             },
 
             {
-                id: 22356,
+                id: 2,
                 name: 'Сдать ДЗ во время.',
                 description: 'Очень сложно.',
                 completed: false
             },
 
             {
-                id: 12535,
+                id: 3,
                 name: 'Сдать сессию на 10.',
                 description: 'Невозможно.',
                 completed: true
             },
 
             {
-                id: 9835,
+                id: 4,
                 name: 'Сделать проект.',
                 description: 'К 26 января.',
                 completed: true
             },
 
             {
-                id: 545656,
+                id: 5,
                 name: 'Поспать.',
                 description: 'Минимум 8 часов.',
                 completed: false
             },
 
             {
-                id: 9755,
+                id: 6,
                 name: 'Запушить коммит',
                 description: 'Как можно скорее.',
                 completed: true
             },
 
             {
-                id: 53762,
+                id: 7,
                 name: 'Поесть.',
                 description: 'В Burger Heroes.',
                 completed: false
@@ -55,29 +56,36 @@ class MyTodoList extends React.Component {
         ]
     }
 
-
-    task = (x) => {
-        return (
-            <div className={"Task " + (x['completed'] ? "Completed" : "NotCompleted")} key={x['id']}>
-                <h2 className="Task">Task {x['id']}</h2>
-                <ul className="Task">
-                    <li>Name: {x['name']}</li>
-                    <li>Description: {x['description']}</li>
-                    <li>Completed: {x['completed'].toString()}</li>
-                </ul>
-                <button onClick={() => console.log(this, 'Task ' + x['id'] + ' completed status = ' + x['completed'])} className='GetStatus'>Get status</button>
-            </div>
-        )
+    handleChangeStatus =(id) => {
+        let taskIndex = this.state.tasks.findIndex(x => (x.id === id))
+        const newTasks = this.state.tasks
+        newTasks[taskIndex].completed = newTasks[taskIndex].completed ? false : true
+        this.setState({tasks: newTasks})
     }
 
+
+
+    handleAddTask = (inputName, inputDescription) => {
+        let id = this.state.tasks[this.state.tasks.length - 1].id + 1
+        let newTask = {
+            id: id,
+            name: inputName,
+            description: inputDescription,
+            completed: false
+        }
+        this.setState(currentState => ({tasks: [...currentState.tasks, newTask]}))
+    }
 
     render() {
         return (
             <div>
-                {this.state['tasks'].map(x => this.task(x))}
+                <TaskAdd handleChange={this.handleAddTask} />
+                <div>
+                    {this.state['tasks'].map(x => <Task data={x} key={x.id} changeStatus={this.handleChangeStatus} />)}
+                </div>
             </div>
         )
     }
 }
 
-export default MyTodoList;
+export default TaskList;

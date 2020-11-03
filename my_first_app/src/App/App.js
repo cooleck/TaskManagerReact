@@ -1,13 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
-import MyTodoList from './MyTodoList.js'
+import TaskList from '../TaskList/TaskList'
 
 function App() {
   return (
       <div>
         <h1 className="Title">Task Tracker</h1>
-        <MyTodoList />
+        <TaskList />
       </div>
   )
 }
