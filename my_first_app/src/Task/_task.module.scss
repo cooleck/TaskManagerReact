@@ -1,0 +1,29 @@
+$completed-color: #32a852;
+$not-completed-color: #c42e00;
+
+.Task {
+  background: #c9b7b7;
+  position: relative;
+  border-radius: 10px;
+  width: 50%;
+  border: 4px solid beige;
+  margin: 2.5vw;
+  display: flex;
+  justify-content: center;
+
+  &-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-completed {
+    background: $completed-color;
+  }
+
+  &-not-completed {
+    background: $not-completed-color;
+  }
+}

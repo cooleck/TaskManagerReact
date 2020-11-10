@@ -1,9 +1,12 @@
 import React from 'react'
-import './TaskAdd.css'
+import styles from './TaskAdd.module.scss'
+import classNames from 'classnames/bind'
+
+const cx = classNames.bind(styles);
 
 const InputTaskTag = ({ value, onChange, placeholder }) => (
     <input
-        className='task-input'
+        className={cx('Task-input', 'Task-field')}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
@@ -38,11 +41,11 @@ class TaskAdd extends React.Component {
 
     render() {
         return (
-            <div className='task-add'>
-                <div className='panel-add'>
+            <div className={cx('Task-add')}>
+                <div className={cx('Task-panel-add')}>
                     <InputTaskTag value={this.state.inputName} onChange={this.handleInputNameChange} placeholder='Type the name of the task' />
                     <InputTaskTag value={this.state.inputDescription} onChange={this.handleInputDescriptionChange} placeholder='Type the description of the task' />
-                    <button onClick={this.addTask} className='task-add-button'>Add task</button>
+                    <button onClick={this.addTask} className={cx('Task-add-button', 'Task-field')}>Add task</button>
                 </div>
             </div>
         )
