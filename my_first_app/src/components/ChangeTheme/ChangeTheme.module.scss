@@ -1,0 +1,11 @@
+.ChangeTheme {
+  position: absolute;
+  padding: 20px;
+  right: 0px;
+}
+
+div.ChangeTheme > div >input[type="radio"]{
+  border-radius: 10px;
+  margin: 5px;
+  border: 1px solid #32a852;
+}

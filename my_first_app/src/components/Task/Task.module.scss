@@ -1,9 +1,5 @@
-@import '_button.module';
-@import '_task.module';
-
-body {
-  background-color: #4581b0;
-}
+@import 'button.module';
+@import 'task.module';
 
 .container {
   display: flex;
