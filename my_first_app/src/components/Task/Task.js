@@ -9,9 +9,10 @@ import { handleChangeStatus } from "../../actions/task";
 const cx = classNames.bind(styles);
 
 const mapStateToProps = (state, props) => {
-    const taskIndex = state.task.tasks.findIndex(x => (x.id === props.data.id));
+    const projectIndex = state.project.projects.findIndex(x => (x.id == props.projectId));
+    const taskIndex = state.project.projects[projectIndex].tasks.findIndex(x => (x.id === props.data.id));
     return {
-        completed: state.task.tasks[taskIndex].completed
+        completed: state.project.projects[projectIndex].tasks[taskIndex].completed
     }
 }
 
@@ -26,11 +27,15 @@ class TaskComponent extends React.Component {
     }
 
     render() {
-        const data = this.props.data
+        const data = this.props.data;
         const completed = this.props.completed;
+        const projectId = this.props.projectId;
 
         const onChangeStatus = () => {
-            this.props.dispatchOnChangeStatus(data.id)
+            this.props.dispatchOnChangeStatus({
+                projectId: projectId,
+                taskId: data.id
+            })
         }
 
         return (

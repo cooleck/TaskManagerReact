@@ -1,11 +1,12 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 import { connect } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import './App.scss';
-import {TaskList} from '../TaskList/TaskList';
 import styles from './App.scss';
 import { ChangeTheme } from '../ChangeTheme/ChangeTheme'
+import Routes from "../Routes";
 
 const cx = classnames.bind(styles);
 
@@ -18,7 +19,7 @@ const AppComponent = ({theme}) => {
         <div className={cx('container', `container-theme-${theme}`)}>
             <h1 className="Title">Task Tracker</h1>
             <ChangeTheme />
-            <TaskList/>
+            <Routes />
         </div>
     )
 }

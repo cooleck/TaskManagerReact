@@ -6,7 +6,7 @@ export const handleAddTask = task => ({
     payload: task
 })
 
-export const handleChangeStatus = taskId => ({
+export const handleChangeStatus = taskData => ({
     type: CHANGE_STATUS,
-    payload: taskId
+    payload: taskData
 })
