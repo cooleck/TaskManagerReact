@@ -1,0 +1,17 @@
+@import '_button.module';
+@import '_task.module';
+
+body {
+  background-color: #4581b0;
+}
+
+.container {
+  display: flex;
+  justify-content: center
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+

@@ -1,0 +1,26 @@
+button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 10vw;
+  flex-grow: 1;
+  border-radius: 10px;
+  border: 1px solid beige;
+
+  .GetStatus {
+    width: 10vw;
+    height: 3vw;
+  }
+
+  .ChangeStatus {
+    width: 10vw;
+    height: 3vw;
+  }
+}
+
+div.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
