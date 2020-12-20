@@ -86,7 +86,7 @@ export const projectReducer = (state = initialState, action) => {
             const { task, projectId } = action.payload;
             let newProjects = [...state.projects];
             let projectIndex = newProjects.findIndex(x => (x.id == projectId))
-            newProjects[projectIndex].tasks.push(task);
+            newProjects[projectIndex] = [...newProjects[projectIndex].tasks, task];
             return {
                 ...state,
                 projects: newProjects
@@ -98,7 +98,11 @@ export const projectReducer = (state = initialState, action) => {
             let newProjects = [...state.projects];
             let projectIndex = newProjects.findIndex(x => (x.id == projectId))
             let taskIndex = newProjects[projectIndex].tasks.findIndex(x => (x.id === taskId))
-            newProjects[projectIndex].tasks[taskIndex].completed = newProjects[projectIndex].tasks[taskIndex].completed ? false : true;
+            const oldTask = newProjects[projectIndex].tasks[taskIndex]
+            newProjects[projectIndex].tasks[taskIndex] = {
+                ...oldTask,
+                completed: !oldTask.completed
+            }
             return {
                 ...state,
                 projects: newProjects
