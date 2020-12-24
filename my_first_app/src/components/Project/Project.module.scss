@@ -1,0 +1,53 @@
+.Project {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  align-items: center;
+  width: 50%;
+  height: 200px;
+  border: 4px solid beige;
+  position: relative;
+
+  &-theme-classic {
+    background-color: #8b9aa6;
+  }
+
+  &-theme-dark {
+    background-color: #282c34;
+    color: aliceblue;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    margin: 2.5vw;
+  }
+}
+
+
+li {
+  list-style-type: none;
+  margin-bottom: 50px;
+  font-size: 25px;
+}
+
+
+.link {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+
+  &-theme-classic {
+    color: black;
+  }
+
+  &-theme-dark {
+    color: aliceblue;
+  }
+
+  :hover {
+    text-decoration: underline;
+    color: orangered;
+  }
+}
+

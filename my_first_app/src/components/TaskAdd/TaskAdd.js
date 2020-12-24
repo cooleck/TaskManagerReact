@@ -48,10 +48,13 @@ class TaskAddComponent extends React.Component {
     onAddTask = () => {
         this.props.dispatchOnAddTask(
             {
-                id: this.state.lastId + 1,
-                name: this.state.inputName,
-                description: this.state.inputDescription,
-                completed: false
+                task: {
+                    id: this.state.lastId + 1,
+                    name: this.state.inputName,
+                    description: this.state.inputDescription,
+                    completed: false
+                },
+                projectId: this.props.projectId
             })
         this.setState( {lastId: this.state.lastId + 1} )
     }
